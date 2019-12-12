@@ -1,0 +1,4 @@
+[default]
+SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
+TITLE = "Pydaria"
+SECRET_KEY = "jadkfbsdkjbfbh"
