@@ -1,0 +1,8 @@
+Flask==1.1.1
+dynaconf==2.2.1
+Flask-Bootstrap==3.3.7.1
+Flask-SQLAlchemy==2.4.1
+flask-simplelogin==0.0.7
+Flask-Admin==1.5.4
+Flask-RESTful==0.3.7
+flask-shell-ipython==0.4.1

@@ -2,3 +2,12 @@
 SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
 TITLE = "Pydaria"
 SECRET_KEY = "jadkfbsdkjbfbh"
+EXTENSIONS = [
+    "pydaria.ext.appearance",
+    "pydaria.ext.database",
+    "pydaria.ext.auth",
+    "pydaria.ext.admin",
+    "pydaria.ext.commands",
+    "pydaria.blueprints.webui",
+    "pydaria.blueprints.restapi",
+]

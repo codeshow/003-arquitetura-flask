@@ -19,7 +19,7 @@
 <ul class="list-group">
     {% for product in products %}
     <li class="list-group-item">
-        <a href="{{url_for('product', product_id=product.id)}}">{{product.name}}- {{ "%0.2f" | format(product.price)}}</a>
+        <a href="{{url_for('webui.productview', product_id=product.id)}}">{{product.name}}- {{ "%0.2f" | format(product.price)}}</a>
     </li>
     {% endfor %}
 </ul>
