@@ -1,6 +1,5 @@
 from flask import abort, render_template
-
-from pydaria.ext.database import Product
+from pydaria.models import Product
 
 
 def index():

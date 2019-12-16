@@ -6,6 +6,7 @@ FLASK_ADMIN_SWATCH = 'cerulean'
 SQLALCHEMY_DATABASE_URI = 'sqlite:///development.db'
 TITLE = "Pydaria"
 SECRET_KEY = "jadkfbsdkjbfbh"
+PASSWORD_SCHEMES = ['pbkdf2_sha512', 'md5_crypt']
 EXTENSIONS = [
     "pydaria.ext.appearance:init_app",
     "pydaria.ext.database:init_app",
