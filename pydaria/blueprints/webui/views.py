@@ -12,4 +12,3 @@ def product(product_id):
         404, "produto nao encontrado"
     )
     return render_template("product.html", product=product)
-
