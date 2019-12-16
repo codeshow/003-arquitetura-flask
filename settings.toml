@@ -1,13 +1,48 @@
 [default]
-SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
+DEBUG = false
+FLASK_ADMIN_NAME = "Pydaria Admin"
+FLASK_ADMIN_TEMPLATE_MODE = "bootstrap3"
+FLASK_ADMIN_SWATCH = 'cerulean'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///development.db'
 TITLE = "Pydaria"
 SECRET_KEY = "jadkfbsdkjbfbh"
 EXTENSIONS = [
-    "pydaria.ext.appearance",
-    "pydaria.ext.database",
-    "pydaria.ext.auth",
-    "pydaria.ext.admin",
-    "pydaria.ext.commands",
-    "pydaria.blueprints.webui",
-    "pydaria.blueprints.restapi",
+    "pydaria.ext.appearance:init_app",
+    "pydaria.ext.database:init_app",
+    "pydaria.ext.auth:init_app",
+    "pydaria.ext.admin:init_app",
+    "pydaria.ext.commands:init_app",
+    "pydaria.blueprints.webui:init_app",
+    "pydaria.blueprints.restapi:init_app",
 ]
+
+
+[development]
+EXTENSIONS = [
+    "flask_debugtoolbar:DebugToolbarExtension",
+    "dynaconf_merge_unique"  # to reuse extensions list from [default]
+]
+TEMPLATES_AUTO_RELOAD = true
+DEBUG = true
+DEBUG_TOOLBAR_ENABLED = true
+DEBUG_TB_INTERCEPT_REDIRECTS = false
+DEBUG_TB_PROFILER_ENABLED = true
+DEBUG_TB_TEMPLATE_EDITOR_ENABLED = true
+DEBUG_TB_PANELS = [
+    "flask_debugtoolbar.panels.versions.VersionDebugPanel",
+    "flask_debugtoolbar.panels.sqlalchemy.SQLAlchemyDebugPanel",
+    "flask_debugtoolbar.panels.timer.TimerDebugPanel",
+    "flask_debugtoolbar.panels.headers.HeaderDebugPanel",
+    "flask_debugtoolbar.panels.request_vars.RequestVarsDebugPanel",
+    "flask_debugtoolbar.panels.template.TemplateDebugPanel",
+    "flask_debugtoolbar.panels.route_list.RouteListDebugPanel",
+    "flask_debugtoolbar.panels.logger.LoggingPanel",
+    "flask_debugtoolbar.panels.profiler.ProfilerDebugPanel",
+    "flask_debugtoolbar.panels.config_vars.ConfigVarsDebugPanel"
+]
+
+[testing]
+SQLALCHEMY_DATABASE_URI = 'sqlite:///testing.db'
+
+[production]
+SQLALCHEMY_DATABASE_URI = 'sqlite:///production.db'

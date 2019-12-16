@@ -1,14 +1,15 @@
-from flask import render_template, abort
-from pydaria.ext.database import Products
+from flask import abort, render_template
+
+from pydaria.ext.database import Product
 
 
 def index():
-    products = Products.query.all()
+    products = Product.query.all()
     return render_template("index.html", products=products)
 
 
 def product(product_id):
-    product = Products.query.filter_by(id=product_id).first() or abort(
+    product = Product.query.filter_by(id=product_id).first() or abort(
         404, "produto nao encontrado"
     )
     return render_template("product.html", product=product)

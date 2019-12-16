@@ -1,12 +1,17 @@
 from importlib import import_module
+
 from dynaconf import FlaskDynaconf
 
 
 def load_extensions(app):
     for extension in app.config.EXTENSIONS:
-        ext = import_module(extension)
-        ext.init_app(app)
+        # Split data in form `extension.path:factory_function`
+        module_name, factory = extension.split(":")
+        # Dynamically import extension module.
+        ext = import_module(module_name)
+        # Invoke factory passing app.
+        getattr(ext, factory)(app)
 
 
-def init_app(app):
-    FlaskDynaconf(app)
+def init_app(app, **config):
+    FlaskDynaconf(app, **config)
